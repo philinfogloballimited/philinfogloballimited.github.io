@@ -1,0 +1,410 @@
+/* ==========================================================================
+   [AGENCY NAME] — your overrides
+   --------------------------------------------------------------------------
+   This file loads LAST, so anything you write here beats the earlier sheets
+   (preflight.css → site.css → utilities.css → custom.css).
+
+   Use it for brand tweaks without hunting through the other files, e.g.:
+
+   :root { --brand-accent: #f59e0b; }
+
+   .btn-amber,
+   .footer-heading::after { background-color: var(--brand-accent) !important; }
+
+   .theme-dark { background-color: #1f1f1f !important; }
+
+   Keep selectors specific (or add !important) when overriding a utility
+   class, because utilities like .bg-yellow-500 are single-class selectors.
+   ========================================================================== */
+
+/* ==========================================================================
+   Brand lockup (logo mark + wordmark) — used in header and footer
+   ========================================================================== */
+.brand-mark-wrap {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgb(15 23 42 / 0.10);
+  padding: 2px;
+}
+.brand-mark-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  min-width: 0;
+}
+.brand-name {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #0f172a;
+  white-space: nowrap;
+}
+.brand-tag {
+  margin-top: 4px;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b8860b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 640px) {
+  .brand-name { font-size: 17px; }
+  .brand-tag { font-size: 9px; letter-spacing: 0.18em; }
+}
+
+/* On dark pages the wordmark goes white, motto stays gold */
+.theme-dark .brand-name { color: #fff; }
+.brand-slim .brand-name,
+.brand-slim .brand-tag { color: #0f172a; }
+.brand-slim .brand-tag { color: #a16207; }
+
+/* Footer lockup */
+.footer-brand { color: #fff; font-size: 16px; }
+.footer-tag { color: #fbbf24; }
+
+/* --------------------------------------------------------------------------
+   Hero carousel: poster slides
+   The poster is shown sharply in the right-hand card, and blurred/darkened
+   behind the copy so the text stays readable on any screen width.
+   -------------------------------------------------------------------------- */
+.hero-media--bg {
+  filter: blur(14px) brightness(0.5) saturate(1.15);
+  transform: scale(1.08);
+  will-change: transform, filter;
+}
+@media (min-width: 1024px) {
+  .hero-media--bg {
+    filter: blur(18px) brightness(0.45) saturate(1.15);
+  }
+}
+
+/* Focus outline for the carousel region */
+.hero-viewport:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 4px;
+}
+
+/* Reduced motion: no blur animation cost, no Ken Burns */
+@media (prefers-reduced-motion: reduce) {
+  .hero-media--bg { transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Hero poster sizing (semantic classes — no arbitrary utilities needed)
+   -------------------------------------------------------------------------- */
+.hero-poster {
+  max-height: 74vh;
+  width: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.65);
+  outline: 1px solid rgb(255 255 255 / 0.2);
+}
+.hero-slide-inner {
+  position: relative;
+  z-index: 10;
+  margin-inline: auto;
+  display: flex;
+  height: 100%;
+  max-width: 1480px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1rem 4.5rem;
+}
+@media (min-width: 640px) { .hero-slide-inner { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) {
+  .hero-slide-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+}
+.hero-poster-wrap { display: none; }
+@media (min-width: 1024px) {
+  .hero-poster-wrap {
+    display: flex;
+    order: 2;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-copy-card { order: 1; max-width: 34rem; }
+}
+.hero-copy-card { order: 2; width: 100%; max-width: 34rem; margin-inline: auto; }
+@media (min-width: 1024px) { .hero-copy-card { margin-inline: 0; } }
+
+/* Anchor offset for in-page job links (#baristas etc.) */
+[id] { scroll-margin-top: 7.5rem; }
+
+/* =====================================================================
+   TEAM CARDS (our-team.html) — square photo tile + body, hover zoom
+   ===================================================================== */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+.team-photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: rgb(30 41 59);
+}
+.team-photo img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 500ms ease;
+}
+.team-card:hover .team-photo img,
+.team-card:focus-within .team-photo img { transform: scale(1.05); }
+.team-photo--mono {
+  display: grid;
+  place-items: center;
+}
+.team-initials {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.team-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+.team-role {
+  margin-top: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(234 179 8);
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-photo img { transition: none; }
+  .team-card:hover .team-photo img,
+  .team-card:focus-within .team-photo img { transform: none; }
+}
+
+/* =====================================================================
+   GALLERY + LIGHTBOX (gallery.html)
+   ===================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.gallery-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background-color: rgb(15 23 42);
+  text-align: left;
+  cursor: zoom-in;
+}
+.gallery-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: rgb(30 41 59);
+}
+.gallery-thumb--poster { aspect-ratio: 3 / 4; }
+.gallery-thumb--portrait { aspect-ratio: 2 / 3; }
+.gallery-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+.gallery-thumb--poster img { object-fit: contain; background-color: rgb(15 23 42); }
+.gallery-item:hover .gallery-thumb img,
+.gallery-item:focus-visible .gallery-thumb img { transform: scale(1.06); }
+.gallery-caption {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+}
+.gallery-caption span { font-size: 0.8125rem; font-weight: 600; color: rgb(226 232 240); }
+.gallery-caption i { font-size: 0.6875rem; color: rgb(148 163 184); }
+.gallery-item:hover .gallery-caption i { color: rgb(234 179 8); }
+.gallery-item:focus-visible {
+  outline: 2px solid rgb(234 179 8);
+  outline-offset: 3px;
+}
+
+.gallery-thumb--cta {
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(135deg, #facc15 0%, #d97706 100%);
+  text-align: center;
+}
+.gallery-thumb--cta .cta-ico { font-size: 2rem; color: #0f172a; }
+.gallery-thumb--cta .cta-title {
+  margin-top: 0.75rem;
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+.gallery-thumb--cta .cta-sub {
+  margin-top: 0.25rem;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(15 23 42 / 0.7);
+}
+.gallery-caption--cta { border-top-color: rgb(255 255 255 / 0.1); }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgb(2 6 23 / 0.94);
+  backdrop-filter: blur(6px);
+}
+.lightbox-figure {
+  position: relative;
+  max-height: 78vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lightbox-img {
+  max-height: 72vh;
+  max-width: min(92vw, 1100px);
+  width: auto;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.8);
+}
+.lightbox-bar {
+  display: flex;
+  width: 100%;
+  max-width: min(92vw, 1100px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.lightbox-count { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(250 204 21); }
+.lightbox-cap { font-size: 0.875rem; color: rgb(203 213 225); }
+.lightbox-btn {
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  background-color: rgb(255 255 255 / 0.08);
+  color: #fff;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+.lightbox-btn:hover { background-color: rgb(255 255 255 / 0.18); }
+.lightbox-btn:focus-visible { outline: 2px solid rgb(250 204 21); outline-offset: 2px; }
+.lightbox-btn--close { position: fixed; top: 1rem; right: 1rem; z-index: 2; background-color: rgb(2 6 23 / 0.7); }
+
+html.u-scroll-lock, html.u-scroll-lock body { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .gallery-thumb img { transition: none; }
+  .gallery-item:hover .gallery-thumb img,
+  .gallery-item:focus-visible .gallery-thumb img { transform: none; }
+}
+
+/* Eight primary nav links: never let a label wrap onto a second line */
+.nav-pill-link,
+.nav-slim-link {
+  white-space: nowrap;
+}
+
+/* Denser navigation on narrower desktops so all eight links stay on one line
+   (the slim bar also carries the phone number from xl upwards) */
+@media (min-width: 1024px) and (max-width: 1359px) {
+  .nav-slim-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .nav-pill-link {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Four-up gallery rows (group photos, portrait set) */
+@media (min-width: 1024px) {
+  .gallery-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .gallery-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Four-up gallery rows (group photos, portrait set) */
+@media (min-width: 1024px) {
+  .gallery-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .gallery-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Photo tiles without a caption bar: expand badge on hover/focus */
+.gallery-item--bare .gallery-thumb { border-radius: 1rem; }
+.gallery-zoom {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  background-color: rgb(2 6 23 / 0.65);
+  color: #fff;
+  font-size: 0.7rem;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+.gallery-item--bare:hover .gallery-zoom,
+.gallery-item--bare:focus-visible .gallery-zoom { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .gallery-zoom { transition: none; }
+}
