@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application Form &middot; PHILINFO GLOBAL LIMITED</title>
+  <meta name="description" content="Apply to PHILINFO GLOBAL LIMITED — send your details and CV and a consultant will match you with live local and international roles.">
+  <meta name="theme-color" content="#222222">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Application Form &middot; PHILINFO GLOBAL LIMITED">
+  <meta property="og:description" content="Apply to PHILINFO GLOBAL LIMITED — send your details and CV and a consultant will match you with live local and international roles.">
+  <meta property="og:image" content="assets/img/hero-1.jpg">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Font Awesome 5 (self-hosted) -->
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <!-- Stylesheets: reset → brand/components → utilities (plain CSS, no build step) -->
+  <link rel="stylesheet" href="assets/css/preflight.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/utilities.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="theme-dark  min-h-screen" data-nav="apply">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-yellow-500 focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-slate-900">
+    Skip to main content
+  </a>
+<!-- Fixed header: full bar at top, slim white bar after scrollY > 60 (500ms) -->
+<header id="site-header" class="fixed inset-x-0 top-0 z-30" x-data="siteHeader()" @keydown.escape.window="mobileOpen = false">
+  <div class="relative">
+
+    <!-- ============================ STATE 1: full bar ============================ -->
+    <div
+      id="header-full"
+      class="transition-all duration-500 ease-out"
+      :class="scrolled ? 'pointer-events-none -translate-y-full opacity-0' : 'translate-y-0 opacity-100'"
+      :aria-hidden="scrolled ? 'true' : 'false'"
+      :inert="scrolled ? true : false"
+    >
+      <div class="mx-auto max-w-wide px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-4 py-3 sm:py-4">
+
+          <!-- Logo -->
+          <a href="index.html" class="brand group flex shrink-0 items-center gap-3" aria-label="PHILINFO GLOBAL LIMITED — home">
+            <span class="brand-mark-wrap h-11 w-11 sm:h-12 sm:w-12">
+              <img src="assets/img/logo-mark.png" alt="" width="512" height="512" class="brand-mark-img" decoding="async" fetchpriority="high">
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">PHILINFO GLOBAL LIMITED</span>
+              <span class="brand-tag ">Crossing Borders to Deliver Excellence</span>
+            </span>
+          </a>
+
+          <!-- Desktop contact + CTA -->
+          <div class="hidden items-center gap-6 lg:flex">
+            <a href="tel:+254724475843" class="header-meta group flex items-center gap-2.5 text-sm transition-colors duration-200">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-yellow-500/15 text-yellow-600 transition-colors duration-200 group-hover:bg-yellow-500 group-hover:text-slate-900">
+                <i class="fas fa-phone-alt text-xs" aria-hidden="true"></i>
+              </span>
+              <span class="font-medium">+254 724 475 843</span>
+            </a>
+            <a href="mailto:philinfogloball@gmail.com" class="header-meta group flex items-center gap-2.5 text-sm transition-colors duration-200">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-yellow-500/15 text-yellow-600 transition-colors duration-200 group-hover:bg-yellow-500 group-hover:text-slate-900">
+                <i class="fas fa-envelope text-xs" aria-hidden="true"></i>
+              </span>
+              <span class="font-medium">philinfogloball@gmail.com</span>
+            </a>
+            <a href="contact.html" class="btn-amber !rounded-sm px-4 py-2.5 text-[13px] uppercase tracking-wide">
+              <i class="fas fa-phone-volume text-xs" aria-hidden="true"></i>
+              Request a Call back
+            </a>
+          </div>
+
+          <!-- Mobile toggle -->
+          <button
+            type="button"
+            class="header-toggle grid h-11 w-11 place-items-center rounded-xl border text-lg backdrop-blur transition-colors duration-200 lg:hidden"
+            @click="mobileOpen = !mobileOpen"
+            :aria-expanded="mobileOpen ? 'true' : 'false'"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <i class="fas" :class="mobileOpen ? 'fa-times' : 'fa-bars'" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Nav pill row (desktop) -->
+        <div class="hidden pb-3 lg:block">
+          <div class="relative flex items-center rounded-xl bg-slate-800 px-3 py-2 shadow-lg shadow-slate-900/20 ring-1 ring-white/5">
+            <nav class="mx-auto flex items-center gap-1" aria-label="Primary">
+              <a href="index.html" class="nav-pill-link" data-nav-item="home">Home</a>
+              <a href="services.html" class="nav-pill-link" data-nav-item="services">Services</a>
+              <a href="job-seekers.html" class="nav-pill-link" data-nav-item="job-seekers">Job Seekers</a>
+              <a href="employers.html" class="nav-pill-link" data-nav-item="employers">Employers</a>
+              <a href="our-team.html" class="nav-pill-link" data-nav-item="our-team">Our Team</a>
+              <a href="gallery.html" class="nav-pill-link" data-nav-item="gallery">Gallery</a>
+              <a href="about.html" class="nav-pill-link" data-nav-item="about">About Us</a>
+              <a href="contact.html" class="nav-pill-link" data-nav-item="contact">Contact Us</a>
+            </nav>
+            <a href="login.html" class="btn-blue absolute right-2 top-1/2 -translate-y-1/2 !bg-blue-500 !px-5 !py-2 text-[13px]" data-nav-item="login">
+              <i class="fas fa-user-circle text-xs" aria-hidden="true"></i> Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ STATE 2: slim bar ============================ -->
+    <div
+      id="header-slim"
+      class="pointer-events-none absolute inset-x-0 top-0 -translate-y-4 bg-white opacity-0 shadow-md transition-all duration-500 ease-out"
+      :class="scrolled ? 'pointer-events-auto translate-y-0 opacity-100' : '-translate-y-4 opacity-0'"
+      :aria-hidden="scrolled ? 'false' : 'true'"
+      :inert="scrolled ? false : true"
+    >
+      <div class="mx-auto flex max-w-wide items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
+        <a href="index.html" class="brand-slim group flex shrink-0 items-center gap-2.5" aria-label="PHILINFO GLOBAL LIMITED — home">
+          <img src="assets/img/logo-mark.png" alt="" width="512" height="512" class="h-9 w-9 w-auto">
+          <span class="brand-text">
+            <span class="brand-name !text-[13px] sm:!text-sm">PHILINFO GLOBAL LIMITED</span>
+            <span class="brand-tag hidden sm:block">Crossing Borders to Deliver Excellence</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary (compact)">
+          <a href="index.html" class="nav-slim-link" data-nav-item="home">Home</a>
+          <a href="services.html" class="nav-slim-link" data-nav-item="services">Services</a>
+          <a href="job-seekers.html" class="nav-slim-link" data-nav-item="job-seekers">Job Seekers</a>
+          <a href="employers.html" class="nav-slim-link" data-nav-item="employers">Employers</a>
+          <a href="our-team.html" class="nav-slim-link" data-nav-item="our-team">Our Team</a>
+          <a href="gallery.html" class="nav-slim-link" data-nav-item="gallery">Gallery</a>
+          <a href="about.html" class="nav-slim-link" data-nav-item="about">About Us</a>
+          <a href="contact.html" class="nav-slim-link" data-nav-item="contact">Contact Us</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="tel:+254724475843" class="hidden items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 xl:flex">
+            <i class="fas fa-phone-alt text-xs text-amber-500" aria-hidden="true"></i> +254 724 475 843
+          </a>
+          <a href="login.html" class="btn-blue !px-5 !py-2 text-[13px]" data-nav-item="login">
+            <i class="fas fa-user-circle text-xs" aria-hidden="true"></i> Login
+          </a>
+          <button
+            type="button"
+            class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-lg text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
+            @click="mobileOpen = !mobileOpen"
+            :aria-expanded="mobileOpen ? 'true' : 'false'"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <i class="fas" :class="mobileOpen ? 'fa-times' : 'fa-bars'" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ Mobile dropdown ============================ -->
+    <div
+      id="mobile-menu"
+      x-show="mobileOpen"
+      x-cloak
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 scale-95 -translate-y-3"
+      x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+      x-transition:leave-end="opacity-0 scale-95 -translate-y-3"
+      class="origin-top px-3 pb-3 sm:px-6 lg:hidden"
+      @click.outside="mobileOpen = false"
+    >
+      <div class="max-h-[calc(100vh-6rem)] overflow-y-auto rounded-2xl bg-white p-4 shadow-2xl ring-1 ring-black/5">
+        <nav class="flex flex-col gap-1" aria-label="Mobile">
+          <a href="index.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="home">Home</a>
+          <a href="services.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="services">Services</a>
+          <a href="job-seekers.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="job-seekers">Job Seekers</a>
+          <a href="employers.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="employers">Employers</a>
+          <a href="our-team.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="our-team">Our Team</a>
+          <a href="gallery.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="gallery">Gallery</a>
+          <a href="about.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="about">About Us</a>
+          <a href="contact.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="contact">Contact Us</a>
+          <a href="apply.html" class="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100" data-nav-item="apply" aria-current="page">Apply Now</a>
+        </nav>
+        <a href="login.html" class="btn-blue mt-3 w-full" data-nav-item="login">
+          <i class="fas fa-user-circle text-xs" aria-hidden="true"></i> Login
+        </a>
+        <div class="mt-4 space-y-2 border-t border-slate-200 pt-4">
+          <a href="tel:+254724475843" class="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-50">
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-amber-100 text-amber-600"><i class="fas fa-phone-alt text-xs" aria-hidden="true"></i></span>
+            +254 724 475 843
+          </a>
+          <a href="mailto:philinfogloball@gmail.com" class="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-50">
+            <span class="grid h-8 w-8 place-items-center rounded-full bg-amber-100 text-amber-600"><i class="fas fa-envelope text-xs" aria-hidden="true"></i></span>
+            philinfogloball@gmail.com
+          </a>
+          <a href="contact.html" class="btn-amber mt-2 w-full !rounded-sm uppercase tracking-wide">Request a Call back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /HEADER -->
+<!-- Inner-page banner: photo + teal→navy gradient, centred title + breadcrumb -->
+<section class="page-banner relative isolate overflow-hidden" aria-labelledby="page-banner-title">
+  <img
+    src="assets/img/banner-handshake.jpg"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+    fetchpriority="high"
+    decoding="async"
+  >
+  <div class="absolute inset-0 bg-banner-overlay" aria-hidden="true"></div>
+  <div class="relative mx-auto flex h-[216px] max-w-wide flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+    <h1 id="page-banner-title" class="text-2xl font-bold tracking-tight text-white drop-shadow-sm sm:text-3xl lg:text-4xl">
+      Application Form - PHILINFO GLOBAL LIMITED
+    </h1>
+    <nav aria-label="Breadcrumb" class="mt-3">
+      <ol class="flex flex-wrap items-center justify-center gap-2 text-[13px] font-medium text-white/70">
+        <li><a href="index.html" class="transition-colors hover:text-yellow-300">Home</a></li>
+        <li aria-hidden="true" class="text-white/40"><i class="fas fa-angle-right text-[10px]"></i></li>
+        <li><span class="text-yellow-300" aria-current="page">Application Form</span></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+<main id="main">
+  <section class="section">
+    <div class="shell max-w-4xl">
+
+      <header class="text-center">
+        <p class="eyebrow eyebrow-lg">Work with PHILINFO GLOBAL LIMITED.</p>
+        <h2 class="mt-3 text-2xl font-bold text-white sm:text-3xl">Application Form</h2>
+        <div class="mx-auto mt-4 h-0.5 w-16 rounded-full bg-yellow-500" aria-hidden="true"></div>
+        <p class="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-slate-400">
+          Five minutes now means a consultant can match you to a live vacancy in Saudi Arabia, Qatar, Dubai or beyond — without asking the same questions twice.
+        </p>
+      </header>
+
+      <!-- Progress / trust strip -->
+      <ul class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3" role="list">
+        <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-card px-4 py-3">
+          <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-500/15 text-green-400"><i class="fas fa-user-check text-xs" aria-hidden="true"></i></span>
+          <span class="text-xs font-medium text-slate-300">Legal, safe &amp; transparent</span>
+        </li>
+        <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-card px-4 py-3">
+          <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-500/15 text-green-400"><i class="fas fa-lock text-xs" aria-hidden="true"></i></span>
+          <span class="text-xs font-medium text-slate-300">Licensed by NEA Kenya</span>
+        </li>
+        <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-card px-4 py-3">
+          <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-green-500/15 text-green-400"><i class="fas fa-clock text-xs" aria-hidden="true"></i></span>
+          <span class="text-xs font-medium text-slate-300">Interviews Mon · Wed · Thu</span>
+        </li>
+      </ul>
+
+      <p id="apply-prefill-note" hidden class="mt-8 flex items-center gap-3 rounded-xl border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 text-sm font-semibold text-yellow-200">
+        <i class="fas fa-briefcase" aria-hidden="true"></i><span></span>
+      </p>
+
+      <div class="mt-8 rounded-2xl border border-white/10 bg-card p-6 shadow-soft sm:p-9">
+        <form
+          class="space-y-7"
+          x-data="applyForm()"
+          @submit.prevent="send()"
+          data-form-name="application"
+          novalidate
+          aria-describedby="apply-status"
+        >
+          <!-- Personal details -->
+          <fieldset>
+            <legend class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-yellow-500">Personal details</legend>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label for="a-first" class="field-label">First name <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <input id="a-first" name="firstName" type="text" autocomplete="given-name" placeholder="First name"
+                  class="field-underline" data-field="firstName"
+                  x-model="fields.firstName" @blur="blur('firstName')" @input="input('firstName')"
+                  :aria-invalid="errors.firstName ? 'true' : 'false'"
+                  :aria-describedby="errors.firstName ? 'a-first-error' : null" required>
+                <p class="field-error" id="a-first-error" x-show="errors.firstName" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.firstName"></span>
+                </p>
+              </div>
+              <div>
+                <label for="a-last" class="field-label">Last name <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <input id="a-last" name="lastName" type="text" autocomplete="family-name" placeholder="Last name"
+                  class="field-underline" data-field="lastName"
+                  x-model="fields.lastName" @blur="blur('lastName')" @input="input('lastName')"
+                  :aria-invalid="errors.lastName ? 'true' : 'false'"
+                  :aria-describedby="errors.lastName ? 'a-last-error' : null" required>
+                <p class="field-error" id="a-last-error" x-show="errors.lastName" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.lastName"></span>
+                </p>
+              </div>
+              <div>
+                <label for="a-email" class="field-label">Email <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <input id="a-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com"
+                  class="field-underline" data-field="email"
+                  x-model="fields.email" @blur="blur('email')" @input="input('email')"
+                  :aria-invalid="errors.email ? 'true' : 'false'"
+                  :aria-describedby="errors.email ? 'a-email-error' : null" required>
+                <p class="field-error" id="a-email-error" x-show="errors.email" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.email"></span>
+                </p>
+              </div>
+              <div>
+                <label for="a-phone" class="field-label">Phone <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <input id="a-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+000 000 000 000"
+                  class="field-underline" data-field="phone"
+                  x-model="fields.phone" @blur="blur('phone')" @input="input('phone')"
+                  :aria-invalid="errors.phone ? 'true' : 'false'"
+                  :aria-describedby="errors.phone ? 'a-phone-error' : null" required>
+                <p class="field-error" id="a-phone-error" x-show="errors.phone" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.phone"></span>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="h-px w-full bg-white/10" aria-hidden="true"></div>
+
+          <!-- Role preferences -->
+          <fieldset>
+            <legend class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-yellow-500">Role preferences</legend>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label for="a-position" class="field-label">Position applied for <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <select id="a-position" name="position"
+                  class="field-underline" data-field="position"
+                  x-model="fields.position" @blur="blur('position')" @change="input('position')"
+                  :aria-invalid="errors.position ? 'true' : 'false'"
+                  :aria-describedby="errors.position ? 'a-position-error' : null" required>
+                  <option value="" class="bg-slate-800">Select the job you are applying for</option>
+                  <option value="Barista" class="bg-slate-800">Barista — Saudi Arabia (1,500 SAR)</option>
+                  <option value="Barista Assistant" class="bg-slate-800">Barista Assistant — Saudi Arabia (1,200 SAR)</option>
+                  <option value="Nanny" class="bg-slate-800">Nanny — Saudi Arabia (1,000 SAR)</option>
+                  <option value="Housemaid" class="bg-slate-800">Housemaid — Qatar</option>
+                  <option value="Lady Driver" class="bg-slate-800">Lady Driver — Qatar (1,500 QAR)</option>
+                  <option value="Lady Barista" class="bg-slate-800">Lady Barista — Qatar (1,500 QAR)</option>
+                  <option value="Cleaner (House-to-House)" class="bg-slate-800">Cleaner — House-to-House (850 SAR)</option>
+                  <option value="Cleaner (Urgent – Female)" class="bg-slate-800">Cleaner — Urgent, Female (1,200 SAR)</option>
+                  <option value="Security Guard" class="bg-slate-800">Security Guard — Dubai (12h shifts)</option>
+                  <option value="Scaffolder" class="bg-slate-800">Scaffolder — Dubai (1,200 AED + OT)</option>
+                  <option value="Carpenter" class="bg-slate-800">Carpenter — Dubai (1,200 AED + OT)</option>
+                  <option value="Construction Helper" class="bg-slate-800">Construction Helper — Dubai (1,200 AED + OT)</option>
+                  <option value="Waiter / Waitress" class="bg-slate-800">Waiter / Waitress</option>
+                  <option value="Chef" class="bg-slate-800">Chef</option>
+                  <option value="Steward" class="bg-slate-800">Steward</option>
+                  <option value="Caregiver / Nurse" class="bg-slate-800">Caregiver / Nurse / Nurse Assistant</option>
+                  <option value="Teacher / Tutor" class="bg-slate-800">Teacher / Tutor</option>
+                  <option value="Driver" class="bg-slate-800">Driver</option>
+                  <option value="Rider" class="bg-slate-800">Rider</option>
+                  <option value="Forklift Operator" class="bg-slate-800">Forklift Operator</option>
+                  <option value="Electrician" class="bg-slate-800">Electrician</option>
+                  <option value="Mason" class="bg-slate-800">Mason</option>
+                  <option value="Panel Beater" class="bg-slate-800">Panel Beater</option>
+                  <option value="Other" class="bg-slate-800">Other</option>
+                </select>
+                <p class="field-error" id="a-position-error" x-show="errors.position" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.position"></span>
+                </p>
+              </div>
+
+              <div>
+                <label for="a-location" class="field-label">Preferred location <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <select id="a-location" name="location"
+                  class="field-underline" data-field="location"
+                  x-model="fields.location" @blur="blur('location')" @change="input('location')"
+                  :aria-invalid="errors.location ? 'true' : 'false'"
+                  :aria-describedby="errors.location ? 'a-location-error' : null" required>
+                  <option value="" class="bg-slate-800">Select your preferred destination</option>
+                  <option value="Saudi Arabia" class="bg-slate-800">Saudi Arabia</option>
+                  <option value="Qatar" class="bg-slate-800">Qatar</option>
+                  <option value="Dubai (UAE)" class="bg-slate-800">Dubai (UAE)</option>
+                  <option value="Oman" class="bg-slate-800">Oman</option>
+                  <option value="Kuwait" class="bg-slate-800">Kuwait</option>
+                  <option value="Bahrain" class="bg-slate-800">Bahrain</option>
+                  <option value="Europe" class="bg-slate-800">Europe</option>
+                  <option value="Kenya (local)" class="bg-slate-800">Kenya (local)</option>
+                  <option value="Open to any country" class="bg-slate-800">Open to any country</option>
+                </select>
+                <p class="field-error" id="a-location-error" x-show="errors.location" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.location"></span>
+                </p>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="a-experience" class="field-label">Years of experience <span class="text-yellow-500" aria-hidden="true">*</span></label>
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-5" role="radiogroup" aria-label="Years of experience">
+                  <label class="cursor-pointer">
+                    <input type="radio" name="experience" value="0-2" class="peer sr-only" x-model="fields.experience" @change="input('experience')" required>
+                    <span class="block rounded-lg border border-white/15 px-3 py-3 text-center text-xs font-medium text-slate-300 transition-all duration-200 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 peer-checked:text-yellow-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-amber-500 hover:border-white/30">0–2 yrs</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="experience" value="3-5" class="peer sr-only" x-model="fields.experience" @change="input('experience')">
+                    <span class="block rounded-lg border border-white/15 px-3 py-3 text-center text-xs font-medium text-slate-300 transition-all duration-200 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 peer-checked:text-yellow-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-amber-500 hover:border-white/30">3–5 yrs</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="experience" value="6-10" class="peer sr-only" x-model="fields.experience" @change="input('experience')">
+                    <span class="block rounded-lg border border-white/15 px-3 py-3 text-center text-xs font-medium text-slate-300 transition-all duration-200 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 peer-checked:text-yellow-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-amber-500 hover:border-white/30">6–10 yrs</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="experience" value="11-15" class="peer sr-only" x-model="fields.experience" @change="input('experience')">
+                    <span class="block rounded-lg border border-white/15 px-3 py-3 text-center text-xs font-medium text-slate-300 transition-all duration-200 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 peer-checked:text-yellow-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-amber-500 hover:border-white/30">11–15 yrs</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="experience" value="15+" class="peer sr-only" x-model="fields.experience" @change="input('experience')">
+                    <span class="block rounded-lg border border-white/15 px-3 py-3 text-center text-xs font-medium text-slate-300 transition-all duration-200 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 peer-checked:text-yellow-300 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-amber-500 hover:border-white/30">15+ yrs</span>
+                  </label>
+                </div>
+                <p class="field-error" id="a-experience-error" x-show="errors.experience" x-cloak role="alert">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.experience"></span>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="h-px w-full bg-white/10" aria-hidden="true"></div>
+
+          <!-- Documents -->
+          <fieldset>
+            <legend class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-yellow-500">Your application</legend>
+
+            <!-- CV upload -->
+            <div>
+              <label for="a-cv" class="field-label">Upload CV <span class="text-yellow-500" aria-hidden="true">*</span></label>
+              <label
+                for="a-cv"
+                class="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-white/25 bg-white/5 px-6 py-8 text-center transition-colors duration-200 hover:border-yellow-500/60 hover:bg-white/[0.07]"
+              >
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-yellow-500/15 text-yellow-400">
+                  <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+                </span>
+                <span class="text-sm font-medium text-white" x-text="fields.cvName || 'Choose a file or drop it here'"></span>
+                <span class="text-xs text-slate-500">PDF, DOC or DOCX · max 5MB</span>
+              </label>
+              <input
+                id="a-cv"
+                name="cv"
+                type="file"
+                accept=".pdf,.doc,.docx,.rtf,.txt"
+                class="sr-only"
+                @change="pickCv($event)"
+                :aria-invalid="errors.cvName ? 'true' : 'false'"
+                :aria-describedby="errors.cvName || cvError ? 'a-cv-error' : null"
+              >
+              <p class="field-error" id="a-cv-error" x-show="errors.cvName || cvError" x-cloak role="alert">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                <span x-text="cvError || errors.cvName"></span>
+              </p>
+            </div>
+
+            <!-- Cover note -->
+            <div class="mt-6">
+              <label for="a-cover" class="field-label">Cover note <span class="text-slate-500 normal-case tracking-normal">(briefly — what are you looking for?)</span></label>
+              <textarea id="a-cover" name="cover" rows="4" placeholder="Tell us about your experience and the role you want next…"
+                class="field-underline resize-y" data-field="cover"
+                x-model="fields.cover" @blur="blur('cover')" @input="input('cover')"
+                :aria-invalid="errors.cover ? 'true' : 'false'"
+                :aria-describedby="errors.cover ? 'a-cover-error' : null"></textarea>
+              <p class="field-error" id="a-cover-error" x-show="errors.cover" x-cloak role="alert">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.cover"></span>
+              </p>
+            </div>
+
+            <!-- Consent -->
+            <div class="mt-6">
+              <label class="flex items-start gap-3 text-sm text-slate-300">
+                <input
+                  type="checkbox"
+                  x-model="fields.consent"
+                  @change="input('consent')"
+                  class="mt-0.5 h-4 w-4 shrink-0 rounded border-white/30 bg-transparent text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0"
+                  :aria-invalid="errors.consent ? 'true' : 'false'"
+                  :aria-describedby="errors.consent ? 'a-consent-error' : null"
+                >
+                <span>
+                  I agree to PHILINFO GLOBAL LIMITED storing these details to consider me for suitable roles,
+                  in line with the
+                  <a href="privacy-policy.html" class="font-semibold text-blue-400 underline-offset-4 hover:underline">Privacy Policy</a>.
+                </span>
+              </label>
+              <p class="field-error" id="a-consent-error" x-show="errors.consent" x-cloak role="alert">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i><span x-text="errors.consent"></span>
+              </p>
+            </div>
+          </fieldset>
+
+          <!-- Submit -->
+          <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
+              :disabled="status === 'sending'"
+            >
+              <i class="fas fa-paper-plane text-[11px]" aria-hidden="true" x-show="status !== 'sending'"></i>
+              <i class="fas fa-circle-notch fa-spin text-[11px]" aria-hidden="true" x-show="status === 'sending'" x-cloak></i>
+              <span x-text="status === 'sending' ? 'Submitting…' : 'Submit Application'">Submit Application</span>
+            </button>
+            <p class="text-xs text-slate-500">Need help? Call <a href="tel:+254724475843" class="font-medium text-slate-300 hover:text-white">+254 724 475 843</a></p>
+          </div>
+
+          <!-- Status -->
+          <div id="apply-status" aria-live="polite" class="min-h-[1px]">
+            <div x-show="status === 'success'" x-cloak x-transition class="rounded-xl border border-green-500/30 bg-green-500/10 p-5">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-check-circle mt-0.5 text-green-400" aria-hidden="true"></i>
+                <div>
+                  <p class="text-sm font-bold text-green-300">Application received — thank you.</p>
+                  <p class="mt-1 text-xs leading-relaxed text-green-200/80">
+                    A consultant will review your CV and respond within five working days. If a role
+                    matches, we will call you to talk it through before submitting you to the employer.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="job-seekers.html" class="btn-outline-blue !px-5 !py-2 !text-xs">Browse opportunities</a>
+                <button type="button" class="rounded-full px-5 py-2 text-xs font-bold text-slate-300 transition-colors hover:text-white" @click="reset()">
+                  Submit another application
+                </button>
+              </div>
+            </div>
+            <div x-show="status === 'error'" x-cloak x-transition class="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
+              <i class="fas fa-exclamation-triangle mt-0.5 text-red-400" aria-hidden="true"></i>
+              <p class="text-sm text-red-200" x-text="serverMessage"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- ================================ FOOTER ================================ -->
+<footer class="relative bg-slate-950 text-slate-400">
+  <div class="h-[3px] w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent" aria-hidden="true"></div>
+
+  <div class="mx-auto max-w-wide px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+
+      <!-- Brand -->
+      <div class="lg:col-span-4">
+        <a href="index.html" class="group inline-flex items-center gap-3" aria-label="PHILINFO GLOBAL LIMITED — home">
+          <span class="brand-mark-wrap h-12 w-12">
+            <img src="assets/img/logo-mark.png" alt="" width="512" height="512" class="brand-mark-img" loading="lazy" decoding="async">
+          </span>
+          <span class="brand-text">
+            <span class="brand-name footer-brand">PHILINFO GLOBAL LIMITED</span>
+            <span class="brand-tag footer-tag">Crossing Borders to Deliver Excellence</span>
+          </span>
+        </a>
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-slate-400">
+          Crossing Borders to Deliver Excellence. A licensed Kenyan recruitment agency placing
+          dependable workers in the Gulf, Middle East and Europe since 2011.
+        </p>
+
+        <ul class="mt-6 flex items-center gap-3" aria-label="Social media">
+          <li><a href="#" class="social-btn" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f text-sm" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">Facebook</span></a></li>
+          <li><a href="#" class="social-btn" aria-label="Follow us on X"><i class="fab fa-twitter text-sm" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">X</span></a></li>
+          <li><a href="#" class="social-btn" aria-label="Follow us on Instagram"><i class="fab fa-instagram text-sm" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">Instagram</span></a></li>
+          <li><a href="#" class="social-btn" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in text-sm" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">LinkedIn</span></a></li>
+          <li><a href="#" class="social-btn" aria-label="Follow us on Pinterest"><i class="fab fa-pinterest-p text-sm" aria-hidden="true"></i><span class="tooltip" aria-hidden="true">Pinterest</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Quick links -->
+      <nav class="lg:col-span-2" aria-labelledby="footer-quick">
+        <h2 id="footer-quick" class="footer-heading">Quick Links</h2>
+        <ul class="space-y-3">
+          <li><a href="index.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Home</a></li>
+          <li><a href="services.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Our Services</a></li>
+          <li><a href="job-seekers.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Job Seekers</a></li>
+          <li><a href="employers.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Employers</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Information -->
+      <nav class="lg:col-span-3" aria-labelledby="footer-info">
+        <h2 id="footer-info" class="footer-heading">Information</h2>
+        <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          <li><a href="company-overview.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Company Overview</a></li>
+          <li><a href="local-recruitment.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Local Recruitment</a></li>
+          <li><a href="foreign-recruitment.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Foreign Recruitment</a></li>
+          <li><a href="our-team.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Our Team</a></li>
+          <li><a href="our-partners.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Our Partners</a></li>
+          <li><a href="gallery.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>Gallery</a></li>
+          <li><a href="about.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>About Us</a></li>
+          <li><a href="faqs.html" class="footer-link"><i class="fas fa-angle-right text-[10px] text-yellow-500" aria-hidden="true"></i>FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <div class="lg:col-span-3">
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="space-y-5">
+          <li class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-yellow-500/10 text-yellow-500 ring-1 ring-yellow-500/30">
+              <i class="fas fa-phone-alt text-xs" aria-hidden="true"></i>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Call us</span>
+              <a href="tel:+254724475843" class="mt-1 block break-words text-sm font-medium text-white transition-colors hover:text-yellow-400">+254 724 475 843</a>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-yellow-500/10 text-yellow-500 ring-1 ring-yellow-500/30">
+              <i class="fas fa-envelope text-xs" aria-hidden="true"></i>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Email</span>
+              <a href="mailto:philinfogloball@gmail.com" class="mt-1 block break-words text-sm font-medium text-white transition-colors hover:text-yellow-400">philinfogloball@gmail.com</a>
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-yellow-500/10 text-yellow-500 ring-1 ring-yellow-500/30">
+              <i class="fas fa-map-marker-alt text-xs" aria-hidden="true"></i>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Visit us</span>
+              <span class="mt-1 block text-sm font-medium text-white">Veew Plaza, 2nd Floor Room 201, River Road, Nairobi, Kenya</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-wide flex-col items-center justify-between gap-4 px-4 py-6 sm:px-6 md:flex-row lg:px-8">
+      <p class="order-2 text-center text-xs text-slate-500 md:order-1 md:text-left">
+        &copy; 2026 PHILINFO GLOBAL LIMITED. All rights reserved.
+      </p>
+      <div class="order-1 flex items-center gap-5 md:order-2">
+        <a href="privacy-policy.html" class="text-xs font-medium text-slate-400 transition-colors hover:text-yellow-400">Privacy Policy</a>
+        <a href="faqs.html" class="text-xs font-medium text-slate-400 transition-colors hover:text-yellow-400">FAQs</a>
+        <button
+          type="button"
+          data-back-to-top
+          class="grid h-10 w-10 place-items-center rounded-full bg-yellow-500 text-slate-900 shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400"
+          aria-label="Back to top of page"
+        >
+          <i class="fas fa-arrow-up text-xs" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /FOOTER -->
+<!-- ============================ VIDEO MODAL ============================ -->
+<div
+  x-data="videoModal()"
+  x-show="open"
+  x-cloak
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="video-modal-title"
+  @keydown.escape.window="close()"
+>
+  <div
+    class="absolute inset-0 bg-slate-950/85 backdrop-blur-sm"
+    @click="close()"
+    aria-hidden="true"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+  ></div>
+
+  <div
+    class="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-white/10"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+    x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-95"
+    x-ref="dialog"
+  >
+    <div class="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4">
+      <h2 id="video-modal-title" class="text-sm font-bold uppercase tracking-[0.18em] text-white">
+        Inside PHILINFO GLOBAL LIMITED
+      </h2>
+      <button
+        type="button"
+        class="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-yellow-500 hover:text-slate-900"
+        @click="close()"
+        aria-label="Close video"
+        x-ref="closeBtn"
+      >
+        <i class="fas fa-times text-sm" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="relative aspect-video w-full bg-black">
+      <!-- Point SITE_CONFIG.videoUrl (assets/js/site.js) at your brand film or a YouTube/Vimeo embed URL. -->
+      <video
+        x-ref="video"
+        x-show="videoUrl && !unavailable"
+        x-bind:src="videoUrl || null"
+        class="h-full w-full object-cover"
+        controls
+        playsinline
+        preload="none"
+        poster="assets/img/video-thumb.jpg"
+        @error="unavailable = true"
+      ></video>
+      <div
+        x-show="!videoUrl || unavailable"
+        x-cloak
+        class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-950/80 bg-cover bg-center p-6 text-center backdrop-blur-sm"
+        style="background-image: url('assets/img/video-thumb.jpg')"
+      >
+        <span class="grid h-14 w-14 place-items-center rounded-full bg-yellow-500 text-slate-900">
+          <i class="fas fa-film text-lg" aria-hidden="true"></i>
+        </span>
+        <p class="text-sm font-semibold text-white">Your brand film goes here</p>
+        <p class="max-w-sm text-xs leading-relaxed text-slate-400">
+          Set <code class="rounded bg-white/10 px-1.5 py-0.5 text-yellow-300">videoUrl</code> in
+          <code class="rounded bg-white/10 px-1.5 py-0.5 text-yellow-300">assets/js/site.js</code>
+          to your MP4 or YouTube/Vimeo embed URL.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Scripts: site behaviour first, then Alpine (deferred, in order) -->
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/alpine.min.js" defer></script>
